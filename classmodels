@@ -1,0 +1,54 @@
+// User Class
+
+    {
+        "email" : "string",
+        "bio": string",
+        "password" : "string",
+        "firstName" : "string",
+        "lastName": "string",
+        "adress": "string",
+        "age" : integer,
+        "rating" :integer,
+        "role" : ['ETUDIANT','ENSEIGNANAT','ADMIN']
+    }
+
+
+
+// Publication class 
+
+    {
+        "#idUser" : "string",
+        "titre" : "string",
+        "description" : "string",
+        "date": "String",
+        "matiere": "string"
+    }
+
+
+// Sceance class 
+
+    {
+        "#idUser":"string",
+        "titre" : "string",
+        "heureDebut" : "string",
+        "heureFin" : "string",
+        "saturee" : "boolean",
+        "capacite" : "entier"
+    }
+
+
+// Inscription Class 
+
+    {
+        "#IdUser" : "string",
+        "#idScenace" : "string",
+        "date" : "string",
+        //"duree" : "string"
+    }
+
+// Rating 
+
+    {
+        "IDUSer(ETUDIANT)" : "string",
+        "IDUser(ENSEIGNANAT)" : "string",
+    }
