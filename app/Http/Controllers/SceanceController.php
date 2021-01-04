@@ -15,7 +15,9 @@ class SceanceController extends Controller
     public function index()
     {
         //
-        return Sceance::all();
+        $scenaces = Sceance::with('inscription_sceance')->get();
+
+        return $scenaces;
     }
 
     /**
@@ -27,14 +29,7 @@ class SceanceController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'idPublication' => 'required',
-            'titre' => 'required',
-            'heureDebut' => 'required',
-            'heureFin' => 'required',
-            'capacite' => 'required'
-        ]);
-
+        
         return Sceance::create($request->all());
     }
 

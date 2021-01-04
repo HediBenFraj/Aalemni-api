@@ -27,11 +27,9 @@ class InscriptionController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'IdEtudiant' => 'required',
-            'idSceance' => 'required',
-        ]);
 
+        error_log('Creatingg .');
+        
         return Inscription::create($request->all());
     }
 

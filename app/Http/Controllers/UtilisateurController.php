@@ -15,7 +15,8 @@ class UtilisateurController extends Controller
     public function index()
     {
         // get all
-        return Utilisateur::all();
+        $users = Utilisateur::all();
+        return $users;
     }
 
     /**
@@ -49,7 +50,15 @@ class UtilisateurController extends Controller
     public function show($id)
     {
         // get one 
-        return Utilisateur::find($id);
+        $user=Utilisateur::find($id);
+        error_log($user);
+        if($user->role == 'ETUDIANT'){
+            return $user::with('etudiant_inscription',"etudiant_avis")->get();
+        }elseif ($user->role == 'ENSEIGNANT'){
+            return $user::with('enseignant_avis','enseignant_publication')->get();
+        }
+
+        
     }
 
     /**

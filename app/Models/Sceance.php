@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Sceance extends Model
 {
 
@@ -17,4 +18,9 @@ class Sceance extends Model
         'saturee',
         'capacite'
     ];
+
+
+    public function inscription_sceance(){
+        return $this->hasMany('App\Models\Inscription','idSceance','id');
+    }
 }
