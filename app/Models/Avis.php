@@ -9,6 +9,7 @@ class Avis extends Model
 {
     protected $fillable =[
         'idEtudiant',
-        'idEnseignant'
+        'idEnseignant',
+        'rate'
     ];
 }

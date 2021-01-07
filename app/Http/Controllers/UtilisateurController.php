@@ -37,8 +37,22 @@ class UtilisateurController extends Controller
             'role' => 'required',
             'age' => 'required'
         ]);
+        $validated = true;
+        if($request->role== 'ENSEIGNANT'){
+            error_log("ENSEIGNANT");
+            $validated = false;
+        }
 
-        return Utilisateur::create($request->all());
+        return Utilisateur::create([
+            'email' => $request->email,
+            'password' => $request->password,
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'adress' => $request->adress,
+            'role' => $request->role,
+            'age' => $request->age,
+            'validated' => $validated
+        ]);
     }
 
     /**

@@ -25,6 +25,7 @@ class CreateUtilisateursTable extends Migration
             $table->string('role');
             $table->integer('age');
             $table->integer('rating')->nullable();
+            $table->boolean('validated')->default(true);
             
 
             $table->timestamps();

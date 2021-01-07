@@ -19,6 +19,12 @@ class Utilisateur extends Model
         'role',
         'age',
         'rating',
+        'validated'
+    ];
+
+    protected $casts = [
+        'validated' => 'boolean',
+        'age' => 'integer'
     ];
 
     public function etudiant_inscription(){
