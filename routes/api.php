@@ -22,6 +22,7 @@ Route::resource('sceances','App\Http\Controllers\SceanceController');
 Route::resource('publications','App\Http\Controllers\PublicationController');
 Route::resource('inscriptions','App\Http\Controllers\InscriptionController');
 
+Route::post('login','App\Http\Controllers\LoginController@store');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -25,11 +25,16 @@ class CreateUtilisateursTable extends Migration
             $table->string('role');
             $table->integer('age');
             $table->integer('rating')->nullable();
-            $table->boolean('validated')->default(true);
             
 
             $table->timestamps();
         });
+
+        Schema::table('utilisateurs', function($table) {
+            $table->boolean('validated')->default(true);
+        });
+
+
     }
 
     /**
@@ -40,5 +45,9 @@ class CreateUtilisateursTable extends Migration
     public function down()
     {
         Schema::dropIfExists('utilisateurs');
+
+        Schema::table('utilisateurs', function($table) {
+            $table->dropColumn('validated');
+        });
     }
 }
