@@ -18,7 +18,7 @@ class CreateAvisTable extends Migration
 
             $table->string('idEtudiant');
             $table->string('idEnseignant');
-            $table->string('rate');
+            $table->integer('rate');
 
             $table->timestamps();
         });
