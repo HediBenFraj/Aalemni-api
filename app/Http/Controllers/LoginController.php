@@ -25,6 +25,7 @@ class LoginController extends Controller
     public function store(Request $request)
     {
         // 
+        
         error_log($request);
     }
 
