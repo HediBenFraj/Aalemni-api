@@ -17,10 +17,10 @@ class CreatePublicationsTable extends Migration
             $table->id();
 
             $table->string('idEnseignant');
-            $table->string('titre');
+            $table->string('titre')->nullable();
             $table->string('description');
             $table->string('date');
-            $table->string('matiere');
+            $table->string('matiere')->nullable();
 
             $table->timestamps();
         });

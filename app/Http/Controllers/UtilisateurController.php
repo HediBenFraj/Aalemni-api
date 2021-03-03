@@ -28,26 +28,11 @@ class UtilisateurController extends Controller
     public function store(Request $request)
     {
         // create 
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'adress' => 'required',
-            'role' => 'required',
-            'age' => 'required'
-        ]);
+
+
   
 
-        return Utilisateur::create([
-            'email' => $request->email,
-            'password' => $request->password,
-            'firstName' => $request->firstName,
-            'lastName' => $request->lastName,
-            'adress' => $request->adress,
-            'role' => $request->role,
-            'age' => $request->age
-        ]);
+        return Utilisateur::create($request->all());
     }
 
     /**
@@ -59,13 +44,22 @@ class UtilisateurController extends Controller
     public function show($id)
     {
         // get one 
-        $user=Utilisateur::find($id);
-        error_log($user);
-        if($user->role == 'ETUDIANT'){
-            return $user::with('etudiant_inscription',"etudiant_avis")->get();
-        }elseif ($user->role == 'ENSEIGNANT'){
-            return $user::with('enseignant_avis','enseignant_publication')->get();
-        }
+       $user=Utilisateur::find($id);
+       if($user->role=="ETUDIANT"){
+        return $user::with('etudiant_inscription')->get();
+       }else if($user->role=="ENSEIGNANT"){
+        return $user::with('enseignant_sceance','enseignant_avis')->get();
+
+       }
+
+        
+        // if($user->role == 'ETUDIANT'){
+        //     error_log("resultat" . $user::with('etudiant_inscription',"etudiant_avis")->get());
+        //     return $user::with('etudiant_inscription',"etudiant_avis")->get();
+        // }elseif ($user->role == 'ENSEIGNANT'){
+        //     error_log("resultat" . $user::with('etudiant_inscription',"etudiant_avis")->get());
+        //     return $user::with('enseignant_avis','enseignant_publication')->get();
+        // }
 
         
     }

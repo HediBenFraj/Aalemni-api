@@ -19,6 +19,7 @@ class Utilisateur extends Model
         'role',
         'age',
         'rating',
+        'matiere',
         'validated'
     ];
 
@@ -39,8 +40,8 @@ class Utilisateur extends Model
         return $this->hasMany('App\Models\Avis','idEnseignant','id');
     }
 
-     public function enseignant_publication(){
-         return $this->hasMany('App\Models\Publication','idEnseignant','id');
+     public function enseignant_sceance(){
+         return $this->hasMany('App\Models\Sceance','idEnseignant','id');
      }
 
 }

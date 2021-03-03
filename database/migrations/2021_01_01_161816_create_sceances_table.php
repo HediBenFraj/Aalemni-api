@@ -16,11 +16,12 @@ class CreateSceancesTable extends Migration
         Schema::create('sceances', function (Blueprint $table) {
             $table->id();
 
-            $table->string('idPublication');
+            $table->string('idEnseignant');
             $table->string('titre');
             $table->string('heureDebut');
+            $table->string('jour');
             $table->string('heureFin');
-            $table->boolean('saturee');
+            $table->boolean('saturee')->default(false);
             $table->integer('capacite');
 
 

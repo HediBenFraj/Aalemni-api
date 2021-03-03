@@ -15,4 +15,9 @@ class Publication extends Model
         'date',
         'matiere'
     ];
+
+
+    public function publication_enseignant(){
+        return $this->hasOne('App\Models\Utilisateur','id','idEnseignant');
+    }
 }

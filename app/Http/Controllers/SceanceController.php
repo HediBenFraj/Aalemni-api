@@ -15,7 +15,7 @@ class SceanceController extends Controller
     public function index()
     {
         //
-        $scenaces = Sceance::with('inscription_sceance')->get();
+        $scenaces = Sceance::with('sceance_inscription')->get();
 
         return $scenaces;
     }
@@ -42,7 +42,8 @@ class SceanceController extends Controller
     public function show($id)
     {
         //
-        return Sceance::find($id);
+        $sceance=Sceance::find($id);
+        return $sceance::with('sceance_inscription')->get();
     }
 
     /**

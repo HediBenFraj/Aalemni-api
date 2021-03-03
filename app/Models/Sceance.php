@@ -11,16 +11,20 @@ class Sceance extends Model
 
 
     protected $fillable = [
-        'idPublication',
+        'idEnseignant',
         'titre',
+        'jour',
         'heureDebut',
         'heureFin',
-        'saturee',
         'capacite'
     ];
 
+    protected $casts = [
+        'saturee' => 'boolean'
+    ];
 
-    public function inscription_sceance(){
+
+    public function sceance_inscription(){
         return $this->hasMany('App\Models\Inscription','idSceance','id');
     }
 }

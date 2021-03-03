@@ -15,7 +15,7 @@ class PublicationController extends Controller
     public function index()
     {
         //
-        return Publication::all();
+        return Publication::with('publication_enseignant')->get();
     }
 
     /**
@@ -27,12 +27,7 @@ class PublicationController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'idEnseignant' => 'required',
-            'titre' => 'required',
-            'date' => 'required',
-            'matiere' => 'required'
-        ]);
+       
         
         return Publication::create($request->all());
     }

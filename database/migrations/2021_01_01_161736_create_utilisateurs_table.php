@@ -21,9 +21,10 @@ class CreateUtilisateursTable extends Migration
             $table->string('password');
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('adress');
+            $table->string('adress')->nullable();
+            $table->string('matiere')->nullable();
             $table->string('role');
-            $table->integer('age');
+            $table->integer('age')->nullable();
             $table->integer('rating')->nullable();
             
 
